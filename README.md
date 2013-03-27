@@ -76,3 +76,9 @@ var classDef = {
     ]
 }
 </code></pre>
+
+In order to get the actual bytecode one would call 
+<pre><code>
+  generateClass(classDef)
+</code></pre>
+which returns a java primitive array (*byte[]*) containing the bytecode.
