@@ -77,6 +77,8 @@ var classDef = {
 }
 </code></pre>
 
+For more information about the JVM assembler checkout the [instruction reference](https://github.com/jbachorik/jvmasm/wiki/JVM-ASM)
+
 In order to get the actual bytecode one would call 
 <pre><code>
   generateClass(classDef)
