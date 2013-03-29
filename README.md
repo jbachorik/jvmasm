@@ -30,7 +30,7 @@ var classDef = {
     name: "pkg.MyClass",
     methods: [
         ctr = {
-            name: "<init>",
+            name: "&lt;init&gt;",
             exceptions: "java.lang.Exception",
             code: function(g) {
                 with(g) {
