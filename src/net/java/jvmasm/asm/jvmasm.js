@@ -65,7 +65,7 @@ function Stack() {
     };
 
     this.matches = function () {
-        println(arguments.length);
+        print(arguments.length);
     };
 
     this.isEmpty = function() {
@@ -377,7 +377,7 @@ function Generator(mv, access) {
         mv.visitInsn(Opcodes.DUP);
         stack.push(stack.peek());
 
-        println(stack);
+        print(stack);
     }
 
     this.DUP2 = function() {
@@ -389,14 +389,14 @@ function Generator(mv, access) {
             stack.push(vals);
         }
 
-        println(stack);
+        print(stack);
     }
 
     this.SWAP = function() {
         mv.visitInsn(Opcodes.SWAP);
         stack.push(stack.pop(2).reverse());
 
-        println(stack);
+        print(stack);
     }
 
     this.DUP_X1 = function() {
@@ -406,7 +406,7 @@ function Generator(mv, access) {
         stack.push(vals[1]);
         stack.push(vals);
 
-        println(stack);
+        print(stack);
     }
 
     this.DUP_X2 = function() {
@@ -416,7 +416,7 @@ function Generator(mv, access) {
         stack.push(vals[vals.length - 1]);
         stack.push(vals);
 
-        println(stack);
+        print(stack);
     }
 
     this.DUP2_X1 = function() {
@@ -437,7 +437,7 @@ function Generator(mv, access) {
 
         stack.push(vals);
 
-        println(stack);
+        print(stack);
     }
 
     this.DUP2_X2 = function() {
@@ -457,7 +457,7 @@ function Generator(mv, access) {
 
         stack.push(vals);
 
-        println(stack);
+        print(stack);
     }
 
     this.ICONST = function(n) {
@@ -484,7 +484,7 @@ function Generator(mv, access) {
             mv.visitInsn(opcode);
         }
 
-        println(stack);
+        print(stack);
     }
 
     this.LCONST = function(n) {
@@ -1727,7 +1727,7 @@ function Generator(mv, access) {
                     (checkType === true &&
                      types[i] !== argTypes[i])) {
                     // stack specific error
-                    println("!!! expecting " + argTypes[i] + ", got " + types[i] + " instead");
+                    print("!!! expecting " + argTypes[i] + ", got " + types[i] + " instead");
                     throw new IllegalArgumentException();
                 }
             }
@@ -1750,7 +1750,7 @@ function Generator(mv, access) {
             }
         }
 
-        println(stack);
+        print(stack);
     }
 
     function asInteger(n) {
@@ -1856,8 +1856,8 @@ String.prototype.replaceAll = function( token, newToken, ignoreCase ) {
 };
 
 function toJavaArray(arr, type, convert) {
-//    println("to java array: " + arr + " " + type)
-    var jArr = Packages.java.lang.reflect.Array.newInstance(type, arr !== undefined && arr !== null ? arr.length : 0);
+//    print("to java array: " + arr + " " + type)
+    var jArr = Packages.java.lang.reflect.Array.newInstance(type.class, arr !== undefined && arr !== null ? arr.length : 0);
     if (arr !== undefined && arr !== null) {
         for(var i in arr) {
             if (convert !== undefined) {
